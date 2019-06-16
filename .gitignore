@@ -1,0 +1,22 @@
+.gitignore
+
+# Module directory
+/.terraform
+.terraform/
+
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.tfvars
+../terraform/terraform.tfvars
+
+/gensubnets
+/data
+
+# Ansible
+*.retry
+
+# Other
+comm.txt
+k8s_com.txt
+update-zone.json

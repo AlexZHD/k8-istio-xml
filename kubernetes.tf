@@ -1,31 +1,28 @@
 locals = {
-  cluster_name                      = "staging.zdevops.xyz"
-  master_autoscaling_group_ids      = ["${aws_autoscaling_group.master-us-west-2a-masters-staging-zdevops-xyz.id}", "${aws_autoscaling_group.master-us-west-2b-masters-staging-zdevops-xyz.id}", "${aws_autoscaling_group.master-us-west-2c-masters-staging-zdevops-xyz.id}"]
-  master_security_group_ids         = ["${aws_security_group.masters-staging-zdevops-xyz.id}"]
-  masters_role_arn                  = "${aws_iam_role.masters-staging-zdevops-xyz.arn}"
-  masters_role_name                 = "${aws_iam_role.masters-staging-zdevops-xyz.name}"
-  node_autoscaling_group_ids        = ["${aws_autoscaling_group.nodes-staging-zdevops-xyz.id}"]
-  node_security_group_ids           = ["${aws_security_group.nodes-staging-zdevops-xyz.id}"]
-  node_subnet_ids                   = ["${aws_subnet.us-west-2a-staging-zdevops-xyz.id}", "${aws_subnet.us-west-2b-staging-zdevops-xyz.id}", "${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"]
-  nodes_role_arn                    = "${aws_iam_role.nodes-staging-zdevops-xyz.arn}"
-  nodes_role_name                   = "${aws_iam_role.nodes-staging-zdevops-xyz.name}"
-  region                            = "us-west-2"
-  route_table_private-us-west-2a_id = "${aws_route_table.private-us-west-2a-staging-zdevops-xyz.id}"
-  route_table_private-us-west-2b_id = "${aws_route_table.private-us-west-2b-staging-zdevops-xyz.id}"
-  route_table_private-us-west-2c_id = "${aws_route_table.private-us-west-2c-staging-zdevops-xyz.id}"
-  route_table_public_id             = "${aws_route_table.staging-zdevops-xyz.id}"
-  subnet_us-west-2a_id              = "${aws_subnet.us-west-2a-staging-zdevops-xyz.id}"
-  subnet_us-west-2b_id              = "${aws_subnet.us-west-2b-staging-zdevops-xyz.id}"
-  subnet_us-west-2c_id              = "${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"
-  subnet_utility-us-west-2a_id      = "${aws_subnet.utility-us-west-2a-staging-zdevops-xyz.id}"
-  subnet_utility-us-west-2b_id      = "${aws_subnet.utility-us-west-2b-staging-zdevops-xyz.id}"
-  subnet_utility-us-west-2c_id      = "${aws_subnet.utility-us-west-2c-staging-zdevops-xyz.id}"
-  vpc_id                            = "vpc-0a10a3826138a938b"
+  cluster_name                 = "staging.zdevops.xyz"
+  master_autoscaling_group_ids = ["${aws_autoscaling_group.master-us-west-2a-masters-staging-zdevops-xyz.id}", "${aws_autoscaling_group.master-us-west-2b-masters-staging-zdevops-xyz.id}", "${aws_autoscaling_group.master-us-west-2c-masters-staging-zdevops-xyz.id}"]
+  master_security_group_ids    = ["${aws_security_group.masters-staging-zdevops-xyz.id}"]
+  masters_role_arn             = "${aws_iam_role.masters-staging-zdevops-xyz.arn}"
+  masters_role_name            = "${aws_iam_role.masters-staging-zdevops-xyz.name}"
+  node_autoscaling_group_ids   = ["${aws_autoscaling_group.nodes-staging-zdevops-xyz.id}"]
+  node_security_group_ids      = ["${aws_security_group.nodes-staging-zdevops-xyz.id}"]
+  node_subnet_ids              = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-0bce2f6620b3112cc"]
+  nodes_role_arn               = "${aws_iam_role.nodes-staging-zdevops-xyz.arn}"
+  nodes_role_name              = "${aws_iam_role.nodes-staging-zdevops-xyz.name}"
+  region                       = "us-west-2"
+  subnet_ids                   = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-03f9b609896ddf02d", "subnet-05cbc94988b4ee3da", "subnet-07330e607abb610b8", "subnet-0bce2f6620b3112cc"]
+  subnet_us-west-2a_id         = "subnet-02038a52c17a09e5b"
+  subnet_us-west-2b_id         = "subnet-0bce2f6620b3112cc"
+  subnet_us-west-2c_id         = "subnet-038cff2b30503062e"
+  subnet_utility-us-west-2a_id = "subnet-03f9b609896ddf02d"
+  subnet_utility-us-west-2b_id = "subnet-05cbc94988b4ee3da"
+  subnet_utility-us-west-2c_id = "subnet-07330e607abb610b8"
+  vpc_id                       = "vpc-0a10a3826138a938b"
 }
 
-output "cluster_name" {
-  value = "staging.zdevops.xyz"
-}
+# output "cluster_name" {
+#   value = "staging.zdevops.xyz"
+# }
 
 output "master_autoscaling_group_ids" {
   value = ["${aws_autoscaling_group.master-us-west-2a-masters-staging-zdevops-xyz.id}", "${aws_autoscaling_group.master-us-west-2b-masters-staging-zdevops-xyz.id}", "${aws_autoscaling_group.master-us-west-2c-masters-staging-zdevops-xyz.id}"]
@@ -52,7 +49,7 @@ output "node_security_group_ids" {
 }
 
 output "node_subnet_ids" {
-  value = ["${aws_subnet.us-west-2a-staging-zdevops-xyz.id}", "${aws_subnet.us-west-2b-staging-zdevops-xyz.id}", "${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"]
+  value = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-0bce2f6620b3112cc"]
 }
 
 output "nodes_role_arn" {
@@ -67,49 +64,37 @@ output "region" {
   value = "us-west-2"
 }
 
-output "route_table_private-us-west-2a_id" {
-  value = "${aws_route_table.private-us-west-2a-staging-zdevops-xyz.id}"
-}
-
-output "route_table_private-us-west-2b_id" {
-  value = "${aws_route_table.private-us-west-2b-staging-zdevops-xyz.id}"
-}
-
-output "route_table_private-us-west-2c_id" {
-  value = "${aws_route_table.private-us-west-2c-staging-zdevops-xyz.id}"
-}
-
-output "route_table_public_id" {
-  value = "${aws_route_table.staging-zdevops-xyz.id}"
+output "subnet_ids" {
+  value = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-03f9b609896ddf02d", "subnet-05cbc94988b4ee3da", "subnet-07330e607abb610b8", "subnet-0bce2f6620b3112cc"]
 }
 
 output "subnet_us-west-2a_id" {
-  value = "${aws_subnet.us-west-2a-staging-zdevops-xyz.id}"
+  value = "subnet-02038a52c17a09e5b"
 }
 
 output "subnet_us-west-2b_id" {
-  value = "${aws_subnet.us-west-2b-staging-zdevops-xyz.id}"
+  value = "subnet-0bce2f6620b3112cc"
 }
 
 output "subnet_us-west-2c_id" {
-  value = "${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"
+  value = "subnet-038cff2b30503062e"
 }
 
 output "subnet_utility-us-west-2a_id" {
-  value = "${aws_subnet.utility-us-west-2a-staging-zdevops-xyz.id}"
+  value = "subnet-03f9b609896ddf02d"
 }
 
 output "subnet_utility-us-west-2b_id" {
-  value = "${aws_subnet.utility-us-west-2b-staging-zdevops-xyz.id}"
+  value = "subnet-05cbc94988b4ee3da"
 }
 
 output "subnet_utility-us-west-2c_id" {
-  value = "${aws_subnet.utility-us-west-2c-staging-zdevops-xyz.id}"
+  value = "subnet-07330e607abb610b8"
 }
 
-output "vpc_id" {
-  value = "vpc-0a10a3826138a938b"
-}
+# output "vpc_id" {
+#   value = "vpc-0a10a3826138a938b"
+# }
 
 provider "aws" {
   region = "us-west-2"
@@ -135,7 +120,7 @@ resource "aws_autoscaling_group" "master-us-west-2a-masters-staging-zdevops-xyz"
   launch_configuration = "${aws_launch_configuration.master-us-west-2a-masters-staging-zdevops-xyz.id}"
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = ["${aws_subnet.us-west-2a-staging-zdevops-xyz.id}"]
+  vpc_zone_identifier  = ["subnet-02038a52c17a09e5b"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -170,7 +155,7 @@ resource "aws_autoscaling_group" "master-us-west-2b-masters-staging-zdevops-xyz"
   launch_configuration = "${aws_launch_configuration.master-us-west-2b-masters-staging-zdevops-xyz.id}"
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = ["${aws_subnet.us-west-2b-staging-zdevops-xyz.id}"]
+  vpc_zone_identifier  = ["subnet-0bce2f6620b3112cc"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -205,7 +190,7 @@ resource "aws_autoscaling_group" "master-us-west-2c-masters-staging-zdevops-xyz"
   launch_configuration = "${aws_launch_configuration.master-us-west-2c-masters-staging-zdevops-xyz.id}"
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = ["${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"]
+  vpc_zone_identifier  = ["subnet-038cff2b30503062e"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -240,7 +225,7 @@ resource "aws_autoscaling_group" "nodes-staging-zdevops-xyz" {
   launch_configuration = "${aws_launch_configuration.nodes-staging-zdevops-xyz.id}"
   max_size             = 2
   min_size             = 2
-  vpc_zone_identifier  = ["${aws_subnet.us-west-2a-staging-zdevops-xyz.id}", "${aws_subnet.us-west-2b-staging-zdevops-xyz.id}", "${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"]
+  vpc_zone_identifier  = ["subnet-02038a52c17a09e5b", "subnet-0bce2f6620b3112cc", "subnet-038cff2b30503062e"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -360,36 +345,6 @@ resource "aws_ebs_volume" "c-etcd-main-staging-zdevops-xyz" {
   }
 }
 
-resource "aws_eip" "us-west-2a-staging-zdevops-xyz" {
-  vpc = true
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2a.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-  }
-}
-
-resource "aws_eip" "us-west-2b-staging-zdevops-xyz" {
-  vpc = true
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2b.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-  }
-}
-
-resource "aws_eip" "us-west-2c-staging-zdevops-xyz" {
-  vpc = true
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2c.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-  }
-}
-
 resource "aws_elb" "api-staging-zdevops-xyz" {
   name = "api-staging-zdevops-xyz-4297ql"
 
@@ -401,7 +356,7 @@ resource "aws_elb" "api-staging-zdevops-xyz" {
   }
 
   security_groups = ["${aws_security_group.api-elb-staging-zdevops-xyz.id}"]
-  subnets         = ["${aws_subnet.utility-us-west-2a-staging-zdevops-xyz.id}", "${aws_subnet.utility-us-west-2b-staging-zdevops-xyz.id}", "${aws_subnet.utility-us-west-2c-staging-zdevops-xyz.id}"]
+  subnets         = ["subnet-03f9b609896ddf02d", "subnet-05cbc94988b4ee3da", "subnet-07330e607abb610b8"]
 
   health_check = {
     target              = "SSL:443"
@@ -548,63 +503,6 @@ resource "aws_launch_configuration" "nodes-staging-zdevops-xyz" {
   enable_monitoring = false
 }
 
-resource "aws_nat_gateway" "us-west-2a-staging-zdevops-xyz" {
-  allocation_id = "${aws_eip.us-west-2a-staging-zdevops-xyz.id}"
-  subnet_id     = "${aws_subnet.utility-us-west-2a-staging-zdevops-xyz.id}"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2a.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-  }
-}
-
-resource "aws_nat_gateway" "us-west-2b-staging-zdevops-xyz" {
-  allocation_id = "${aws_eip.us-west-2b-staging-zdevops-xyz.id}"
-  subnet_id     = "${aws_subnet.utility-us-west-2b-staging-zdevops-xyz.id}"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2b.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-  }
-}
-
-resource "aws_nat_gateway" "us-west-2c-staging-zdevops-xyz" {
-  allocation_id = "${aws_eip.us-west-2c-staging-zdevops-xyz.id}"
-  subnet_id     = "${aws_subnet.utility-us-west-2c-staging-zdevops-xyz.id}"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2c.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-  }
-}
-
-resource "aws_route" "0-0-0-0--0" {
-  route_table_id         = "${aws_route_table.staging-zdevops-xyz.id}"
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = "igw-02f4bc1e796854407"
-}
-
-resource "aws_route" "private-us-west-2a-0-0-0-0--0" {
-  route_table_id         = "${aws_route_table.private-us-west-2a-staging-zdevops-xyz.id}"
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = "${aws_nat_gateway.us-west-2a-staging-zdevops-xyz.id}"
-}
-
-resource "aws_route" "private-us-west-2b-0-0-0-0--0" {
-  route_table_id         = "${aws_route_table.private-us-west-2b-staging-zdevops-xyz.id}"
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = "${aws_nat_gateway.us-west-2b-staging-zdevops-xyz.id}"
-}
-
-resource "aws_route" "private-us-west-2c-0-0-0-0--0" {
-  route_table_id         = "${aws_route_table.private-us-west-2c-staging-zdevops-xyz.id}"
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = "${aws_nat_gateway.us-west-2c-staging-zdevops-xyz.id}"
-}
-
 resource "aws_route53_record" "api-staging-zdevops-xyz" {
   name = "api.staging.zdevops.xyz"
   type = "A"
@@ -616,80 +514,6 @@ resource "aws_route53_record" "api-staging-zdevops-xyz" {
   }
 
   zone_id = "/hostedzone/Z1JZYP536QD3PI"
-}
-
-resource "aws_route_table" "private-us-west-2a-staging-zdevops-xyz" {
-  vpc_id = "vpc-0a10a3826138a938b"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "private-us-west-2a.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/kops/role"                   = "private-us-west-2a"
-  }
-}
-
-resource "aws_route_table" "private-us-west-2b-staging-zdevops-xyz" {
-  vpc_id = "vpc-0a10a3826138a938b"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "private-us-west-2b.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/kops/role"                   = "private-us-west-2b"
-  }
-}
-
-resource "aws_route_table" "private-us-west-2c-staging-zdevops-xyz" {
-  vpc_id = "vpc-0a10a3826138a938b"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "private-us-west-2c.staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/kops/role"                   = "private-us-west-2c"
-  }
-}
-
-resource "aws_route_table" "staging-zdevops-xyz" {
-  vpc_id = "vpc-0a10a3826138a938b"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "staging.zdevops.xyz"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/kops/role"                   = "public"
-  }
-}
-
-resource "aws_route_table_association" "private-us-west-2a-staging-zdevops-xyz" {
-  subnet_id      = "${aws_subnet.us-west-2a-staging-zdevops-xyz.id}"
-  route_table_id = "${aws_route_table.private-us-west-2a-staging-zdevops-xyz.id}"
-}
-
-resource "aws_route_table_association" "private-us-west-2b-staging-zdevops-xyz" {
-  subnet_id      = "${aws_subnet.us-west-2b-staging-zdevops-xyz.id}"
-  route_table_id = "${aws_route_table.private-us-west-2b-staging-zdevops-xyz.id}"
-}
-
-resource "aws_route_table_association" "private-us-west-2c-staging-zdevops-xyz" {
-  subnet_id      = "${aws_subnet.us-west-2c-staging-zdevops-xyz.id}"
-  route_table_id = "${aws_route_table.private-us-west-2c-staging-zdevops-xyz.id}"
-}
-
-resource "aws_route_table_association" "utility-us-west-2a-staging-zdevops-xyz" {
-  subnet_id      = "${aws_subnet.utility-us-west-2a-staging-zdevops-xyz.id}"
-  route_table_id = "${aws_route_table.staging-zdevops-xyz.id}"
-}
-
-resource "aws_route_table_association" "utility-us-west-2b-staging-zdevops-xyz" {
-  subnet_id      = "${aws_subnet.utility-us-west-2b-staging-zdevops-xyz.id}"
-  route_table_id = "${aws_route_table.staging-zdevops-xyz.id}"
-}
-
-resource "aws_route_table_association" "utility-us-west-2c-staging-zdevops-xyz" {
-  subnet_id      = "${aws_subnet.utility-us-west-2c-staging-zdevops-xyz.id}"
-  route_table_id = "${aws_route_table.staging-zdevops-xyz.id}"
 }
 
 resource "aws_security_group" "api-elb-staging-zdevops-xyz" {
@@ -861,90 +685,6 @@ resource "aws_security_group_rule" "ssh-external-to-node-0-0-0-0--0" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-}
-
-resource "aws_subnet" "us-west-2a-staging-zdevops-xyz" {
-  vpc_id            = "vpc-0a10a3826138a938b"
-  cidr_block        = "10.20.32.0/19"
-  availability_zone = "us-west-2a"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2a.staging.zdevops.xyz"
-    SubnetType                                  = "Private"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/role/internal-elb"           = "1"
-  }
-}
-
-resource "aws_subnet" "us-west-2b-staging-zdevops-xyz" {
-  vpc_id            = "vpc-0a10a3826138a938b"
-  cidr_block        = "10.20.64.0/19"
-  availability_zone = "us-west-2b"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2b.staging.zdevops.xyz"
-    SubnetType                                  = "Private"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/role/internal-elb"           = "1"
-  }
-}
-
-resource "aws_subnet" "us-west-2c-staging-zdevops-xyz" {
-  vpc_id            = "vpc-0a10a3826138a938b"
-  cidr_block        = "10.20.96.0/19"
-  availability_zone = "us-west-2c"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "us-west-2c.staging.zdevops.xyz"
-    SubnetType                                  = "Private"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/role/internal-elb"           = "1"
-  }
-}
-
-resource "aws_subnet" "utility-us-west-2a-staging-zdevops-xyz" {
-  vpc_id            = "vpc-0a10a3826138a938b"
-  cidr_block        = "10.20.0.0/22"
-  availability_zone = "us-west-2a"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "utility-us-west-2a.staging.zdevops.xyz"
-    SubnetType                                  = "Utility"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/role/elb"                    = "1"
-  }
-}
-
-resource "aws_subnet" "utility-us-west-2b-staging-zdevops-xyz" {
-  vpc_id            = "vpc-0a10a3826138a938b"
-  cidr_block        = "10.20.4.0/22"
-  availability_zone = "us-west-2b"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "utility-us-west-2b.staging.zdevops.xyz"
-    SubnetType                                  = "Utility"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/role/elb"                    = "1"
-  }
-}
-
-resource "aws_subnet" "utility-us-west-2c-staging-zdevops-xyz" {
-  vpc_id            = "vpc-0a10a3826138a938b"
-  cidr_block        = "10.20.8.0/22"
-  availability_zone = "us-west-2c"
-
-  tags = {
-    KubernetesCluster                           = "staging.zdevops.xyz"
-    Name                                        = "utility-us-west-2c.staging.zdevops.xyz"
-    SubnetType                                  = "Utility"
-    "kubernetes.io/cluster/staging.zdevops.xyz" = "owned"
-    "kubernetes.io/role/elb"                    = "1"
-  }
 }
 
 terraform = {

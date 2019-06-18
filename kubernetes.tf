@@ -6,18 +6,18 @@ locals = {
   masters_role_name            = "${aws_iam_role.masters-staging-zdevops-xyz.name}"
   node_autoscaling_group_ids   = ["${aws_autoscaling_group.nodes-staging-zdevops-xyz.id}"]
   node_security_group_ids      = ["${aws_security_group.nodes-staging-zdevops-xyz.id}"]
-  node_subnet_ids              = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-0bce2f6620b3112cc"]
+  node_subnet_ids              = ["subnet-02a8542054e44e439", "subnet-08407fd429cfd4812", "subnet-0fc1c64408b447fe9"]
   nodes_role_arn               = "${aws_iam_role.nodes-staging-zdevops-xyz.arn}"
   nodes_role_name              = "${aws_iam_role.nodes-staging-zdevops-xyz.name}"
   region                       = "us-west-2"
-  subnet_ids                   = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-03f9b609896ddf02d", "subnet-05cbc94988b4ee3da", "subnet-07330e607abb610b8", "subnet-0bce2f6620b3112cc"]
-  subnet_us-west-2a_id         = "subnet-02038a52c17a09e5b"
-  subnet_us-west-2b_id         = "subnet-0bce2f6620b3112cc"
-  subnet_us-west-2c_id         = "subnet-038cff2b30503062e"
-  subnet_utility-us-west-2a_id = "subnet-03f9b609896ddf02d"
-  subnet_utility-us-west-2b_id = "subnet-05cbc94988b4ee3da"
-  subnet_utility-us-west-2c_id = "subnet-07330e607abb610b8"
-  vpc_id                       = "vpc-0a10a3826138a938b"
+  subnet_ids                   = ["subnet-0127fb2a128f7bc46", "subnet-02a8542054e44e439", "subnet-08407fd429cfd4812", "subnet-09dd316a1ed98ce53", "subnet-0a97cd2c1288b4e16", "subnet-0fc1c64408b447fe9"]
+  subnet_us-west-2a_id         = "subnet-08407fd429cfd4812"
+  subnet_us-west-2b_id         = "subnet-02a8542054e44e439"
+  subnet_us-west-2c_id         = "subnet-0fc1c64408b447fe9"
+  subnet_utility-us-west-2a_id = "subnet-0127fb2a128f7bc46"
+  subnet_utility-us-west-2b_id = "subnet-0a97cd2c1288b4e16"
+  subnet_utility-us-west-2c_id = "subnet-09dd316a1ed98ce53"
+  vpc_id                       = "vpc-0b5f525f280a4747c"
 }
 
 # output "cluster_name" {
@@ -49,7 +49,7 @@ output "node_security_group_ids" {
 }
 
 output "node_subnet_ids" {
-  value = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-0bce2f6620b3112cc"]
+  value = ["subnet-02a8542054e44e439", "subnet-08407fd429cfd4812", "subnet-0fc1c64408b447fe9"]
 }
 
 output "nodes_role_arn" {
@@ -65,35 +65,35 @@ output "region" {
 }
 
 output "subnet_ids" {
-  value = ["subnet-02038a52c17a09e5b", "subnet-038cff2b30503062e", "subnet-03f9b609896ddf02d", "subnet-05cbc94988b4ee3da", "subnet-07330e607abb610b8", "subnet-0bce2f6620b3112cc"]
+  value = ["subnet-0127fb2a128f7bc46", "subnet-02a8542054e44e439", "subnet-08407fd429cfd4812", "subnet-09dd316a1ed98ce53", "subnet-0a97cd2c1288b4e16", "subnet-0fc1c64408b447fe9"]
 }
 
 output "subnet_us-west-2a_id" {
-  value = "subnet-02038a52c17a09e5b"
+  value = "subnet-08407fd429cfd4812"
 }
 
 output "subnet_us-west-2b_id" {
-  value = "subnet-0bce2f6620b3112cc"
+  value = "subnet-02a8542054e44e439"
 }
 
 output "subnet_us-west-2c_id" {
-  value = "subnet-038cff2b30503062e"
+  value = "subnet-0fc1c64408b447fe9"
 }
 
 output "subnet_utility-us-west-2a_id" {
-  value = "subnet-03f9b609896ddf02d"
+  value = "subnet-0127fb2a128f7bc46"
 }
 
 output "subnet_utility-us-west-2b_id" {
-  value = "subnet-05cbc94988b4ee3da"
+  value = "subnet-0a97cd2c1288b4e16"
 }
 
 output "subnet_utility-us-west-2c_id" {
-  value = "subnet-07330e607abb610b8"
+  value = "subnet-09dd316a1ed98ce53"
 }
 
 # output "vpc_id" {
-#   value = "vpc-0a10a3826138a938b"
+#   value = "vpc-0b5f525f280a4747c"
 # }
 
 provider "aws" {
@@ -120,7 +120,7 @@ resource "aws_autoscaling_group" "master-us-west-2a-masters-staging-zdevops-xyz"
   launch_configuration = "${aws_launch_configuration.master-us-west-2a-masters-staging-zdevops-xyz.id}"
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = ["subnet-02038a52c17a09e5b"]
+  vpc_zone_identifier  = ["subnet-08407fd429cfd4812"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -155,7 +155,7 @@ resource "aws_autoscaling_group" "master-us-west-2b-masters-staging-zdevops-xyz"
   launch_configuration = "${aws_launch_configuration.master-us-west-2b-masters-staging-zdevops-xyz.id}"
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = ["subnet-0bce2f6620b3112cc"]
+  vpc_zone_identifier  = ["subnet-02a8542054e44e439"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -190,7 +190,7 @@ resource "aws_autoscaling_group" "master-us-west-2c-masters-staging-zdevops-xyz"
   launch_configuration = "${aws_launch_configuration.master-us-west-2c-masters-staging-zdevops-xyz.id}"
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = ["subnet-038cff2b30503062e"]
+  vpc_zone_identifier  = ["subnet-0fc1c64408b447fe9"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -225,7 +225,7 @@ resource "aws_autoscaling_group" "nodes-staging-zdevops-xyz" {
   launch_configuration = "${aws_launch_configuration.nodes-staging-zdevops-xyz.id}"
   max_size             = 2
   min_size             = 2
-  vpc_zone_identifier  = ["subnet-02038a52c17a09e5b", "subnet-0bce2f6620b3112cc", "subnet-038cff2b30503062e"]
+  vpc_zone_identifier  = ["subnet-08407fd429cfd4812", "subnet-02a8542054e44e439", "subnet-0fc1c64408b447fe9"]
 
   tag = {
     key                 = "KubernetesCluster"
@@ -356,7 +356,7 @@ resource "aws_elb" "api-staging-zdevops-xyz" {
   }
 
   security_groups = ["${aws_security_group.api-elb-staging-zdevops-xyz.id}"]
-  subnets         = ["subnet-03f9b609896ddf02d", "subnet-05cbc94988b4ee3da", "subnet-07330e607abb610b8"]
+  subnets         = ["subnet-0127fb2a128f7bc46", "subnet-09dd316a1ed98ce53", "subnet-0a97cd2c1288b4e16"]
 
   health_check = {
     target              = "SSL:443"
@@ -414,7 +414,7 @@ resource "aws_key_pair" "kubernetes-staging-zdevops-xyz-738cb82db14d2546c16f573a
 resource "aws_launch_configuration" "master-us-west-2a-masters-staging-zdevops-xyz" {
   name_prefix                 = "master-us-west-2a.masters.staging.zdevops.xyz-"
   image_id                    = "ami-0008325f0ded04d04"
-  instance_type               = "t2.medium"
+  instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.kubernetes-staging-zdevops-xyz-738cb82db14d2546c16f573a8d2bd70e.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-staging-zdevops-xyz.id}"
   security_groups             = ["${aws_security_group.masters-staging-zdevops-xyz.id}"]
@@ -437,7 +437,7 @@ resource "aws_launch_configuration" "master-us-west-2a-masters-staging-zdevops-x
 resource "aws_launch_configuration" "master-us-west-2b-masters-staging-zdevops-xyz" {
   name_prefix                 = "master-us-west-2b.masters.staging.zdevops.xyz-"
   image_id                    = "ami-0008325f0ded04d04"
-  instance_type               = "t2.medium"
+  instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.kubernetes-staging-zdevops-xyz-738cb82db14d2546c16f573a8d2bd70e.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-staging-zdevops-xyz.id}"
   security_groups             = ["${aws_security_group.masters-staging-zdevops-xyz.id}"]
@@ -460,7 +460,7 @@ resource "aws_launch_configuration" "master-us-west-2b-masters-staging-zdevops-x
 resource "aws_launch_configuration" "master-us-west-2c-masters-staging-zdevops-xyz" {
   name_prefix                 = "master-us-west-2c.masters.staging.zdevops.xyz-"
   image_id                    = "ami-0008325f0ded04d04"
-  instance_type               = "t2.medium"
+  instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.kubernetes-staging-zdevops-xyz-738cb82db14d2546c16f573a8d2bd70e.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-staging-zdevops-xyz.id}"
   security_groups             = ["${aws_security_group.masters-staging-zdevops-xyz.id}"]
@@ -483,7 +483,7 @@ resource "aws_launch_configuration" "master-us-west-2c-masters-staging-zdevops-x
 resource "aws_launch_configuration" "nodes-staging-zdevops-xyz" {
   name_prefix                 = "nodes.staging.zdevops.xyz-"
   image_id                    = "ami-0008325f0ded04d04"
-  instance_type               = "t2.medium"
+  instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.kubernetes-staging-zdevops-xyz-738cb82db14d2546c16f573a8d2bd70e.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.nodes-staging-zdevops-xyz.id}"
   security_groups             = ["${aws_security_group.nodes-staging-zdevops-xyz.id}"]
@@ -518,7 +518,7 @@ resource "aws_route53_record" "api-staging-zdevops-xyz" {
 
 resource "aws_security_group" "api-elb-staging-zdevops-xyz" {
   name        = "api-elb.staging.zdevops.xyz"
-  vpc_id      = "vpc-0a10a3826138a938b"
+  vpc_id      = "vpc-0b5f525f280a4747c"
   description = "Security group for api ELB"
 
   tags = {
@@ -530,7 +530,7 @@ resource "aws_security_group" "api-elb-staging-zdevops-xyz" {
 
 resource "aws_security_group" "masters-staging-zdevops-xyz" {
   name        = "masters.staging.zdevops.xyz"
-  vpc_id      = "vpc-0a10a3826138a938b"
+  vpc_id      = "vpc-0b5f525f280a4747c"
   description = "Security group for masters"
 
   tags = {
@@ -542,7 +542,7 @@ resource "aws_security_group" "masters-staging-zdevops-xyz" {
 
 resource "aws_security_group" "nodes-staging-zdevops-xyz" {
   name        = "nodes.staging.zdevops.xyz"
-  vpc_id      = "vpc-0a10a3826138a938b"
+  vpc_id      = "vpc-0b5f525f280a4747c"
   description = "Security group for nodes"
 
   tags = {

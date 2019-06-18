@@ -3,6 +3,7 @@
 
 # Module directory
 /.terraform
+/Slides
 .terraform/
 
 # Compiled files
@@ -13,6 +14,8 @@
 
 /gensubnets
 /data
+/conf.d
+/docker/check_xml_api/__pycache__
 
 # Ansible
 *.retry
@@ -23,3 +26,7 @@ k8s_com.txt
 update-zone.json
 k8-istio-xml-workspace.code-workspace
 .gitignore
+kops_edit_subnets.txt
+documentation/docker.txt
+docker/check_xml_api/upload.html
+docker/check_xml_api/env_file
